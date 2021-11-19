@@ -1,7 +1,7 @@
 void mult_2d()
 {
   TFile *f=new TFile("13TeV_CR0_RHoff.root");
-  TTree *tree = (TTree*)f->Get("pytree;100"); // use the required tree here
+  TTree *tree = (TTree*)f->Get("pytree"); // use the required tree here
    Int_t entries = tree->GetEntries();
 
  const Int_t maxTrack=10000;
@@ -38,7 +38,7 @@ void mult_2d()
    Int_t new_mult=0;
       for(int i=0; i<ntrks; i++) { //track loop is here loop on no. of particels released in the particular event
 
-     if( (eta[i]<1) && (eta[i]>-1)&&(pT[i]>0.05)){
+     if( (eta[i]>1.5) || (eta[i]<-1.5)  ){
        new_mult++;};
     // Double_t eta1 = eta[i];
     // heta->Fill(eta1);
